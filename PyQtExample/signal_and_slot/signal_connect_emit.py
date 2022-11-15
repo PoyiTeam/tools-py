@@ -19,7 +19,7 @@ class CustSignal(QObject):
     signal5 = Signal(dict)
 
     # 宣告一個多重載版本的訊號，包括帶int和str類型參數的訊號和帶str類型參數的訊號
-    #signal6 = Signal([int, str], [str])
+    # signal6 = Signal([int, str], [str])
 
     def __init__(self, parent=None):
         super(CustSignal, self).__init__(parent)
@@ -30,7 +30,7 @@ class CustSignal(QObject):
         self.signal3.connect(self.signalCall3)
         self.signal4.connect(self.signalCall4)
         self.signal5.connect(self.signalCall5)
-        #self.signal6[int, str].connect(self.signalCall6)
+        # self.signal6[int, str].connect(self.signalCall6)
         # self.signal6[str].connect(self.signalCall6OverLoad)
 
         # 發射訊號
@@ -39,7 +39,7 @@ class CustSignal(QObject):
         self.signal3.emit(1, "text")
         self.signal4.emit([1, 2, 3, 4])
         self.signal5.emit({"name": "wangwu", "age": "25"})
-        #self.signal6[int, str].emit(1, "text")
+        # self.signal6[int, str].emit(1, "text")
         # self.signal6[str].emit("text")
 
     def signalCall1(self):
