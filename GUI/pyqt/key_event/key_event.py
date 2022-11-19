@@ -4,12 +4,12 @@ from PySide6.QtCharts import QChart, QChartView
 from PySide6.QtGui import QKeyEvent
 
 
-class Chart(QChart):
-    def __init__(self):
-        super().__init__()
+# class Chart(QChart):
+#     def __init__(self):
+#         super().__init__()
 
-    def keyPressEvent(self, event: QKeyEvent) -> None:
-        print(f'key num: {event.key()} / key text: {event.text()}')
+#     def keyPressEvent(self, event: QKeyEvent) -> None:
+#         print(f'key num: {event.key()} / key text: {event.text()}')
 
 
 class MainWindow(QWidget):
@@ -21,11 +21,11 @@ class MainWindow(QWidget):
 
 
 app = QApplication(sys.argv)
-chart = Chart()
-chart_view = QChartView(chart)
-window = MainWindow().
+#chart = Chart()
+#chart_view = QChartView(chart)
+# chart_view.show()
+window = MainWindow()
 window.show()
-chart_view.show()
 
 
-sys.exit(app.exec_())
+sys.exit(app.exec())

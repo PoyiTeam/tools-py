@@ -1,10 +1,8 @@
 # %%
 import ctypes
-# %%
-
-CONSTANT_VALUE = 10
 
 # %% pointer for void
+CONSTANT_VALUE = 10
 value_pointer = ctypes.c_void_p(CONSTANT_VALUE)
 value_pointer.value
 

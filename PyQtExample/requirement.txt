@@ -1,6 +1,0 @@
-autopep8
-pyqt6
-pyqt6-tools
-numpy
-matplotlib
-sounddevice
