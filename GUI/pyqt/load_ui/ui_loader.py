@@ -6,7 +6,7 @@ from PySide6.QtCore import QFile, QIODevice
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
-    ui_file_name = "widget_empty.ui"
+    ui_file_name = "main_window_empty.ui"
     ui_file = QFile(ui_file_name)
     if not ui_file.open(QIODevice.ReadOnly):
         print(f"Cannot open {ui_file_name}: {ui_file.errorString()}")
