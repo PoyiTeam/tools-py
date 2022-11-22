@@ -165,7 +165,7 @@ class NI9234(NIDAQ):
 
             add_ai_channel_func(self, channel)
 
-            self.task.timing.cfg_samp_clk_timing(
+            self.task.timingcfg_samp_clk_timing(
                 rate=self.sample_rate, sample_mode=AcquisitionType.CONTINUOUS)
             print(f'Channel added, exist channel: {self.task.channel_names}')
             self.exist_channel_quantity = len(self.task.channel_names)
