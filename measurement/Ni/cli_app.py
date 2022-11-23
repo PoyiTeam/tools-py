@@ -2,7 +2,6 @@ from typing import Optional, Union
 import ctypes
 import asyncio
 from datetime import datetime
-import dataclasses
 
 import keyboard
 import nidaqmx
@@ -46,7 +45,6 @@ class NiCallbackDataList(list):
                 f'Too many elements. {self.__class__.__name__} max length is {self.max_len} ')
 
 
-@dataclasses.dataclass
 class GeneralDAQParams:
     sample_rate: float
     record_duration: float
@@ -137,7 +135,7 @@ class NI9234(NIDAQ):
         self.sample_rate = 12800
         self.record_duration = 5.0
         self.frame_duration = 1000  # millisecond
-        self.exist_channel_quantity = 0
+        #self.exist_channel_quantity = 0
         # max/min sampling rate of multi-channel and single-channel is same in NI-9234
         self.min_sample_rate = self.device.ai_min_rate
         self.max_sample_rate = self.device.ai_max_single_chan_rate
@@ -165,11 +163,11 @@ class NI9234(NIDAQ):
 
             add_ai_channel_func(self, channel)
 
-            self.task.timingcfg_samp_clk_timing(
-                rate=self.sample_rate, sample_mode=AcquisitionType.CONTINUOUS)
+            # self.task.timingcfg_samp_clk_timing(
+            #    rate=self.sample_rate, sample_mode=AcquisitionType.CONTINUOUS)
             print(f'Channel added, exist channel: {self.task.channel_names}')
-            self.exist_channel_quantity = len(self.task.channel_names)
-            self.set_buffer_size()
+            #self.exist_channel_quantity = len(self.task.channel_names)
+            # self.set_buffer_size()
         return wrap
 
     @add_ai_channel
@@ -212,7 +210,7 @@ class NI9234(NIDAQ):
 
     def set_buffer_size(self):
         self.frame_size = int(self.sample_rate * self.frame_duration * 0.001)
-        self.buffer_size = self.frame_size * self.exist_channel_quantity * 10
+        self.buffer_size = self.frame_size * self.task.number_of_channels * 10
         self.task.in_stream.input_buf_size = self.buffer_size
 
     def set_stream_on(self):
@@ -231,7 +229,7 @@ class NI9234(NIDAQ):
             sample_interval=self.frame_size,
             callback_method=callback_method)
 
-        self.chunk = np.zeros((self.exist_channel_quantity, self.frame_size))
+        self.chunk = np.zeros((self.task.number_of_channels, self.frame_size))
         self.stream_reader = NiStreamReaders.AnalogMultiChannelReader(self.task.in_stream)
         self.callback_data_ptr.value.append(self.stream_reader)
         self.callback_data_ptr.value.append(self.chunk)
