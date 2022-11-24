@@ -15,34 +15,26 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QMenuBar,
-    QPushButton, QSizePolicy, QSpinBox, QStatusBar,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QPushButton,
+    QSizePolicy, QSpinBox, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(320, 240)
+        MainWindow.resize(270, 120)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.label_even_odd = QLabel(self.centralwidget)
         self.label_even_odd.setObjectName(u"label_even_odd")
-        self.label_even_odd.setGeometry(QRect(20, 50, 49, 16))
+        self.label_even_odd.setGeometry(QRect(10, 50, 250, 20))
         self.spinBox_amount = QSpinBox(self.centralwidget)
         self.spinBox_amount.setObjectName(u"spinBox_amount")
-        self.spinBox_amount.setGeometry(QRect(10, 10, 91, 22))
+        self.spinBox_amount.setGeometry(QRect(10, 10, 250, 22))
         self.pushButton_reset = QPushButton(self.centralwidget)
         self.pushButton_reset.setObjectName(u"pushButton_reset")
-        self.pushButton_reset.setGeometry(QRect(10, 70, 75, 24))
+        self.pushButton_reset.setGeometry(QRect(10, 80, 240, 24))
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QMenuBar(MainWindow)
-        self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 320, 22))
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QStatusBar(MainWindow)
-        self.statusbar.setObjectName(u"statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
 
