@@ -2,7 +2,7 @@ import sys
 from PySide6.QtWidgets import QApplication
 from model.model import Model
 from controllers.main_ctrl import MainController
-from views.main_window_view import MainView
+from views.main_view import MainView
 
 
 class App(QApplication):
