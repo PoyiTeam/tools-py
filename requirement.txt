@@ -3,3 +3,4 @@ ipython
 numpy
 scipy
 pyside6
+pyqt6
