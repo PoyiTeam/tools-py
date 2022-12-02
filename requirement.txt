@@ -1,5 +1,4 @@
 autopep8
-ipython
 numpy
 scipy
 pyside6
