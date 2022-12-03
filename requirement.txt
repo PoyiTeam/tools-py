@@ -3,3 +3,5 @@ numpy
 scipy
 pyside6
 pyqt6
+keyboard
+nidaqmx
