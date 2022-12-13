@@ -11,7 +11,6 @@ class Ui_MainWindow(object):
         FormLayout = QtWidgets.QFormLayout(self.centralwidget)
         self.LineEdit = QtWidgets.QLineEdit(self.centralwidget)
         FormLayout.addRow("LABEL", self.LineEdit)
-        MainWindow.setCentralWidget(self.centralwidget)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
 
