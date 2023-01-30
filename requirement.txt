@@ -1,5 +1,6 @@
 autopep8
 numpy
+pandas
 scipy
 pyside6
 pyqt6
