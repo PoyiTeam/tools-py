@@ -102,7 +102,7 @@ try:
             magnitude *= args.gain / fftsize
             line = (
                 gradient[int(np.clip(x, 0, 1) * (len(gradient) - 1))]
-                for x in magnitude[low_bin : low_bin + args.columns]
+                for x in magnitude[low_bin: low_bin + args.columns]
             )
             print(*line, sep="", end="\x1b[0m\n")
         else:

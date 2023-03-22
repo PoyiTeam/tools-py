@@ -1,4 +1,4 @@
-#%%
+# %%
 import sounddevice as sd
 import numpy as np
 import queue
@@ -10,7 +10,7 @@ import sounddevice as sd
 import argparse
 
 parser = argparse.ArgumentParser(add_help=False)
-#%%
+# %%
 fs = 48000
 channels = [1]
 window = 100  # visible time slot (ms)
@@ -20,7 +20,10 @@ chunk = int(fs * block_duration / 1000)  # chunck size
 device = sd.default.device
 mapping = [c - 1 for c in (channels)]  # Channel numbers start with 1
 q = queue.Queue()
-#%%
+print(f'default device num: {device}')
+# %%
+
+
 def audio_callback(indata, frames, time, status):
     """This is called (from a separate thread) for each audio block."""
     if status:
@@ -54,7 +57,7 @@ def update_plot(frame):
     return lines
 
 
-#%%
+# %%
 try:
     if fs is None:
         device_info = sd.query_devices(device, "input")
