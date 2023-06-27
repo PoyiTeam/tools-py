@@ -6,3 +6,4 @@ pyside6
 pyqt6
 keyboard
 nidaqmx
+watchdog
