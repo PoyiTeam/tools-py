@@ -1,0 +1,7 @@
+{
+    "host": "140.134.76.145",
+    "port": 3306,
+    "user": "AIoTLab-MySQL",
+    "password": "db309-1",
+    "machine": "dummy_machine"
+}
