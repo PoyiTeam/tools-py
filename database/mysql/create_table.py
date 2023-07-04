@@ -26,6 +26,5 @@ database = mysql.connector.connect(
 cursor = database.cursor()
 cursor.execute('SHOW TABLES')
 
-
 for x in cursor:
     print(x)
