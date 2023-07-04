@@ -12,19 +12,19 @@ host = cfg['host']
 port = cfg['port']
 user = cfg['user']
 password = cfg['password']
-database = cfg['task']
-table = datetime.now().strftime("%Y%m%dT%H%M%S")
+db_name = cfg['machine']
+headers = cfg['headers']
+rawdata_table_name = cfg['rawdata_table_name']
 
-database = mysql.connector.connect(
+db = mysql.connector.connect(
     host=host,
     port=port,
     user=user,
     password=password,
-    database=database,
+    database=db_name
 )
 
-cursor = database.cursor()
-cursor.execute('SHOW TABLES')
 
-for x in cursor:
-    print(x)
+cursor = db.cursor()
+cursor.execute(
+    f'CREATE TABLE IF NOT EXISTS {rawdata_table_name} ({headers[0]} VARCHAR(255), {headers[1]} VARCHAR(15), {headers[2]} VARCHAR(255))')
