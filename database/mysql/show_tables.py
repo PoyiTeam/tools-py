@@ -11,17 +11,17 @@ host = cfg['host']
 port = cfg['port']
 user = cfg['user']
 password = cfg['password']
-database = cfg['dummy_machine']
+db_name = cfg['dummy_machine']
 
-database = mysql.connector.connect(
+db = mysql.connector.connect(
     host=host,
     port=port,
     user=user,
     password=password,
-    database=database,
+    database=db_name,
 )
 
-cursor = database.cursor()
+cursor = db.cursor()
 
 cursor.execute('SHOW TABLES')
 for x in cursor:

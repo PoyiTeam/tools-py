@@ -11,16 +11,14 @@ host = cfg['host']
 port = cfg['port']
 user = cfg['user']
 password = cfg['password']
+db_name = cfg['machine']
 
-database = mysql.connector.connect(
+db = mysql.connector.connect(
     host=host,
     port=port,
     user=user,
     password=password
 )
 
-cursor = database.cursor()
-cursor.execute("SHOW DATABASES")
-
-for x in cursor:
-    print(x)
+cursor = db.cursor()
+cursor.execute(f'CREATE DATABASE IF NOT EXISTS {db_name}')
