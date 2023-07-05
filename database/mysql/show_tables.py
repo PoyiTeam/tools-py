@@ -18,10 +18,13 @@ db = mysql.connector.connect(
     port=port,
     user=user,
     password=password,
-    database=db_name,
 )
 
 cursor = db.cursor()
+
+sql = 'USE dummy_machine'
+cursor.execute(sql)
+
 sql = 'SHOW TABLES'
 cursor.execute(sql)
 

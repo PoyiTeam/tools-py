@@ -19,4 +19,7 @@ db = mysql.connector.connect(
     password=password
 )
 
-print(db)
+
+cursor = db.cursor()
+sql = 'USE dummy_machine'
+cursor.execute(sql)

@@ -1,4 +1,5 @@
 import mysql.connector
+import mysql.connector.cursor
 import json
 from datetime import datetime
 
@@ -25,6 +26,10 @@ db = mysql.connector.connect(
 )
 
 cursor = db.cursor()
+
+sql = f'USE {db_name}'
+cursor.execute(sql)
+
 sql = (f'INSERT INTO {rawdata_table_name} '
        f'({headers[0]}, {headers[1]}, {headers[2]}) '
        'VALUES (%s, %s, %s)')
