@@ -22,7 +22,8 @@ db = mysql.connector.connect(
 )
 
 cursor = db.cursor()
+sql = 'SHOW TABLES'
+cursor.execute(sql)
 
-cursor.execute('SHOW TABLES')
 for x in cursor:
     print(x)

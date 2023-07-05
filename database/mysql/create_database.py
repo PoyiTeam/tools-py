@@ -21,4 +21,5 @@ db = mysql.connector.connect(
 )
 
 cursor = db.cursor()
-cursor.execute(f'CREATE DATABASE IF NOT EXISTS {db_name}')
+sql = f'CREATE DATABASE IF NOT EXISTS {db_name}'
+cursor.execute(sql)

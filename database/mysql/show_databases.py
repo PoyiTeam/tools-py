@@ -20,7 +20,8 @@ db = mysql.connector.connect(
 )
 
 cursor = db.cursor()
-cursor.execute("SHOW DATABASES")
+sql = 'SHOW DATABASES'
+cursor.execute(sql)
 
 for x in cursor:
     print(x)

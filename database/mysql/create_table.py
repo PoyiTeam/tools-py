@@ -26,5 +26,5 @@ db = mysql.connector.connect(
 
 
 cursor = db.cursor()
-cursor.execute(
-    f'CREATE TABLE IF NOT EXISTS {rawdata_table_name} ({headers[0]} VARCHAR(255), {headers[1]} VARCHAR(15), {headers[2]} VARCHAR(255))')
+sql = f'CREATE TABLE IF NOT EXISTS {rawdata_table_name} ({headers[0]} VARCHAR(255), {headers[1]} VARCHAR(15), {headers[2]} VARCHAR(255))'
+cursor.execute(sql)
