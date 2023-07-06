@@ -4,7 +4,7 @@
     "user": "AIoTLab-MySQL",
     "password": "db309-1",
     "machine": "dummy_machine",
-    "rawdata_table_name": "rawdata",
+    "rawdata_table_name": "rawdata_dummy",
     "headers": [
         "task",
         "time",
