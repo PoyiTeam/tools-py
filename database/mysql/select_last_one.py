@@ -32,4 +32,5 @@ cursor.execute(sql)
 field_names = cursor.description
 result = cursor.fetchall()
 print(f'target column name: {cursor.column_names[0]}')
-print(f'element: {result[0][0]}')
+if len(result) > 0:
+    print(f'element: {result[0][0]}')
