@@ -1,18 +1,6 @@
-#!/usr/bin/python
-
-"""
-ZetCode PyQt6 tutorial
-
-In the example, we draw randomly 1000 red points
-on the window.
-
-Author: Jan Bodnar
-Website: zetcode.com
-"""
-
-from PyQt6.QtWidgets import QWidget, QApplication
-from PyQt6.QtGui import QPainter
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QWidget, QApplication
+from PySide6.QtGui import QPainter
+from PySide6.QtCore import Qt
 import sys
 import random
 
