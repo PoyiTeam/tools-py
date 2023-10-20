@@ -7,3 +7,5 @@ keyboard
 nidaqmx
 watchdog
 mysql-connector-python
+opencv-python
+scikit-learn
