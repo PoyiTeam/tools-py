@@ -8,5 +8,5 @@
             "program": "${file}",
             "console": "integratedTerminal",
         }
-    ]
+    ],
 }
