@@ -1,3 +1,7 @@
 {
-    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/tools/"
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/tools/",
+    "terminal.integrated.shellArgs.windows": [
+        "-Command",
+        "${workspaceFolder}/.venv/tools/Scripts/Activate.ps1"
+    ]
 }
