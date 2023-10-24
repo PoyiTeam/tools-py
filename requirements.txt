@@ -8,10 +8,11 @@ nidaqmx
 watchdog
 mysql-connector-python
 scikit-learn
-pytube
 yt_dlp
 opencv-python
 scikit-learn
+matplotlib
 pyav
+torch
 openai-whisper
 matplotlib
