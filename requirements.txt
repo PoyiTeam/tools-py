@@ -7,3 +7,6 @@ keyboard
 nidaqmx
 watchdog
 mysql-connector-python
+scikit-learn
+pytube
+yt_dlp
