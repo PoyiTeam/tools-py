@@ -10,3 +10,5 @@ mysql-connector-python
 scikit-learn
 pytube
 yt_dlp
+opencv-python
+pyav

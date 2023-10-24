@@ -1,9 +1,7 @@
 import cv2
 
 
-import cv2
-
-cap = cv2.VideoCapture('vtest.avi')
+cap = cv2.VideoCapture('To be continued.mp4')
 
 while cap.isOpened():
     ret, frame = cap.read()
@@ -11,8 +9,9 @@ while cap.isOpened():
     if not ret:
         print("Can't receive frame (stream end?). Exiting ...")
         break
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    cv2.imshow('frame', gray)
+    bgr = cv2.cvtColor(frame, cv2.IMREAD_COLOR)
+    # cv2.imshow('frame', gray)
+    cv2.imshow('frame',  bgr)
     if cv2.waitKey(1) == ord('q'):
         break
 cap.release()
