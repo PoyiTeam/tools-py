@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "./tools" // workspace folders
+		},
+	],
+	"settings": {
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.autopep8"
+		},
+		"terminal.integrated.cwd": "${workspaceFolder}",
+		"terminal.integrated.profiles.windows": {
+			"PowerShell": {
+				"source": "PowerShell",
+				"icon": "terminal-powershell",
+				"overrideName": true,
+				"args": [
+					"-ExecutionPolicy",
+					"Bypass",
+					"-NoExit",
+					"-File",
+					"${workspaceFolder}\\.venv\\${workspaceFolderBasename}\\Scripts\\Activate.ps1"
+				]
+			},
+		},
+	},
+}

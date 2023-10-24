@@ -31,3 +31,15 @@ testcase32 = 'There is a boy trapped in a burning building Iron Boy'
 result = problem3(testcase32)
 print("Student answer: ", result, "\tAnswer correct?", result ==
       "There is a boy trapped in a burning building Iron Man")
+
+
+
+
+
+def haha():
+    
+    
+    
+    
+    
+    pass
