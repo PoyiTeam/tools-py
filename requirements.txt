@@ -12,3 +12,4 @@ pytube
 yt_dlp
 opencv-python
 pyav
+openai
