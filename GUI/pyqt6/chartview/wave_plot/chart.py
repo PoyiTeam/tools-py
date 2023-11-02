@@ -6,9 +6,6 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QMessageBox, QWidget,
                                QVBoxLayout, QFormLayout, QHBoxLayout, QSizePolicy, QPushButton)
 from PySide6.QtGui import QPen, QColor, QPalette, QBrush, QWheelEvent, qRgb, QMouseEvent, QPainter
 
-from sdk.utils import get_func_name
-from debug_flags import PRINT_FUNC_NAME_FLAG
-
 
 class ChartView(QChartView):
     _vertical_line_x = None
@@ -25,9 +22,6 @@ class ChartView(QChartView):
         self.update()
 
     def drawForeground(self, painter, rect):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.drawForeground)}')
-
         if self.vertical_line_x is None:
             return
         # painter.save()
@@ -47,9 +41,6 @@ class LineChart(QWidget):
     mouse_moved = Signal(QPoint)
 
     def __init__(self):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.__init__)}')
-
         super().__init__()
         self._chart = QChart()
         self._series = QLineSeries()
@@ -81,18 +72,12 @@ class LineChart(QWidget):
         self.set_dark_theme()
 
     def mouseMoveEvent(self, event) -> None:
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.mouseMoveEvent)}')
-
         self.mouse_moved.emit(event.pos())
         print(event.x(), event.y())
         # return QChartView.mouseMoveEvent(self, event)
         # return QChartView.mouseMoveEvent(self, event)
 
     def set_y(self, y_line):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.set_y)}')
-
         if len(self._buffer) != y_line.shape[0]:
             raise BaseException('Length of buffer and y-line is not match!')
         for i in range(y_line.shape[0]):
@@ -100,9 +85,6 @@ class LineChart(QWidget):
         self._series.replace(self._buffer)
 
     def set_dark_theme(self):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.set_dark_theme)}')
-
         self._pen = QPen()
         self._pen.setWidth(1)
         self._pen.setColor(QColor(Qt.cyan))
@@ -117,9 +99,6 @@ class LineChart(QWidget):
 
 class WaveChart(LineChart):
     def __init__(self):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.__init__)}')
-
         super(WaveChart, self).__init__()
 
         self._axis_x.setRange(0, 100)
@@ -145,9 +124,6 @@ class WaveChart(LineChart):
         # self.mouse_moved.connect(self.mouseMoveEvent)
 
     def reset_axis(self, end_point, buffer_len):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.reset_axis)}')
-
         self._axis_x.setRange(0, end_point)
         self._x = np.linspace(0, end_point, buffer_len)
         self._y = np.zeros(buffer_len)
@@ -155,23 +131,14 @@ class WaveChart(LineChart):
         self._series.replace(self._buffer)
 
     def set_y_range(self, low_limit: float, high_limit: float):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.set_y_range)}')
-
         self._axis_y.setRange(low_limit, high_limit)
 
     def set_y_label(self, label: str):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.set_y_label)}')
-
         self._axis_y.setTitleText(label)
 
 
 class SpectrumChart(LineChart):
     def __init__(self):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.__init__)}')
-
         super(SpectrumChart, self).__init__()
 
         self._axis_x.setRange(0, 1600)
@@ -196,9 +163,6 @@ class SpectrumChart(LineChart):
         # self.mouse_moved.connect(self.mouseMoveEvent)
 
     def reset_axis(self, end_point, buffer_len):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.reset_axis)}')
-
         self._axis_x.setRange(0, end_point)
         self._axis_y.setRange(0, 1)
         self._x = np.linspace(0, end_point, buffer_len)
@@ -207,9 +171,6 @@ class SpectrumChart(LineChart):
         self._series.replace(self._buffer)
 
     def set_x_range(self, low_limit: float, high_limit: float):
-        if PRINT_FUNC_NAME_FLAG:
-            print(f'run function - {get_func_name(self.set_x_range)}')
-
         self._axis_x.setRange(low_limit, high_limit)
 
     def mark_max_x(self):
